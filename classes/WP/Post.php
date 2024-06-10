@@ -100,20 +100,22 @@ class Post {
 	 */
 	public function get_the_post_type_archive_links() {
 		if ( ! $this->post ) {
-			throw new \WP_Error( 'Post is required' );
+				throw new \WP_Error( 'Post is required' );
 		}
 		$post = $this->post;
-		$url  = $this->parse_url( get_post_type_archive_link( $post->post_type ) );
-		if ( is_wp_error( $url ) ) {
-			$url = false;
+		$url  = get_post_type_archive_link( $post->post_type );
+		if ($url === false || is_wp_error( $url ) ) {
+				return array();
 		}
+		$url = $this->parse_url( $url );
+
 		$home_url = $this->parse_url( home_url() );
 
 		$links = array();
-		if ( $url && trailingslashit( $home_url ) !== $url ) {
-			$links[] = $url . '*';
+		if ( trailingslashit( $home_url ) !== $url ) {
+				$links[] = $url . '*';
 		}
 
 		return $links;
-	}
+}
 }
