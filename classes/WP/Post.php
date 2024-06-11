@@ -104,7 +104,7 @@ class Post {
 		}
 		$post = $this->post;
 		$url  = get_post_type_archive_link( $post->post_type );
-		if ($url === false || is_wp_error( $url ) ) {
+		if ( $url === false || is_wp_error( $url ) ) {
 				return array();
 		}
 		$url = $this->parse_url( $url );
@@ -117,5 +117,5 @@ class Post {
 		}
 
 		return $links;
-}
+	}
 }
