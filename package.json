@@ -3,7 +3,7 @@
     "@wordpress/env": "4.0.5"
   },
   "name": "trunk",
-  "version": "6.2.0",
+  "version": "6.2.1",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -16,13 +16,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amimoto-ami/c3-cloudfront-clear-cache.git"
+    "url": "git+https://github.comtnm-hu/c3-cloudfront-clear-cache.git"
   },
   "keywords": [],
-  "author": "Hidetaka Okamoto",
+  "author": "Zsolt Szloboda forked from Hidetaka Okamoto",
   "license": "GPL",
   "bugs": {
-    "url": "https://github.com/amimoto-ami/c3-cloudfront-clear-cache/issues"
+    "url": "https://github.com/tnm-hu/c3-cloudfront-clear-cache/issues"
   },
-  "homepage": "https://github.com/amimoto-ami/c3-cloudfront-clear-cache#readme"
+  "homepage": "https://github.com/tnm-hu/c3-cloudfront-clear-cache#readme"
 }
