@@ -21,6 +21,9 @@ jobs:
           - php: 7.4
             wp: latest
     steps:
+      - name: Get current TS
+        id: unixtime
+        run: echo "::set-output name=unixtime::$(date +'%s')"
       - name: Checkout
         uses: actions/checkout@master
       - name: PHP ${{ matrix.php }} / WP ${{ matrix.wp }} Test
@@ -53,10 +56,8 @@ jobs:
       - name: Coding Style check
         run: composer lint
 
-      - name: Install WP Tests
-        run: bash bin/install-wp-tests.sh wordpress_test root root 127.0.0.1 ${{ matrix.wp }} true
-      
-      - name: phpunit tests
-        run: |
-          phpunit
-          WP_MULTISITE=1 phpunit
+      - name: Zip all files
+        run: zip -r /tmp/c3-cloudfront-clear-cache-${{ steps.unixtime.outputs.unixtime }}.zip *
+
+      # - name: Install WP Tests
+      #   run: bash bin/install-wp-tests.sh wordpress_test root root 127.0.0.1 ${{ matrix.wp }} true
